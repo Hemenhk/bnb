@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchAllPosts } from "../store/posts/reducers/actions/getAllPostsActions";
+import { fetchAllPosts } from "../store/posts/actions/getAllPostsActions";
 import classes from "./styles/HomePage.module.css"
 
 const HomePage = () => {
@@ -22,6 +22,8 @@ const HomePage = () => {
               <img src={post.imageCover} alt={post.title} />
               <div className={classes.content}>
                 <h2>{post.title}</h2>
+                <h4>{post.location}</h4>
+                <p>{post.price} SEK night</p>
               </div>
             </Link>
           ))}
