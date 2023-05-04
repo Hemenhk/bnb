@@ -18,7 +18,7 @@ const HomePage = () => {
       {!isLoading && (
         <div className={classes.container}>
           {posts.map((post) => (
-            <Link to={`/$post._id`} key={post._id} className={classes.card}>
+            <Link to={`/${post._id}`} key={post._id} className={classes.card}>
               <img src={post.imageCover} alt={post.title} />
               <div className={classes.content}>
                 <h2>{post.title}</h2>
