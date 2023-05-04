@@ -7,8 +7,8 @@ import { getSinglePostAction } from "../../store/posts/actions/getPostIdActions"
 const PostDetailPage = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
-  const post = useSelector((state) => state.singleMovie.post);
-  const isLoading = useSelector((state) => state.singleMovie.isLoading);
+  const post = useSelector((state) => state.singlePost.post);
+  const isLoading = useSelector((state) => state.singlePost.isLoading);
 
   useEffect(() => {
     dispatch(getSinglePostAction(postId));

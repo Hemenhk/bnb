@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteBtn from "./DeleteBtn";
 
 import classes from "./styles/PostItem.module.css";
 
@@ -34,8 +35,9 @@ const PostItem = ({ post }) => {
     </div>
     <menu className={classes.menu}>
       <Link to="edit">
-        <button className={classes.button}>Edit</button>
+        <button className={classes.editButton}>Edit</button>
       </Link>
+      <DeleteBtn />
     </menu>
   </div>
 </div>
