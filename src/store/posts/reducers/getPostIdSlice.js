@@ -4,13 +4,13 @@ const initialState = {
   post: null,
   isLoading: false,
   error: "",
-  title: "",
-  description: "",
-  location: "",
-  price: "",
-  owner: "",
-  createdAt: "",
-  imageCover: "",
+  titleId: "",
+  descriptionId: "",
+  locationId: "",
+  priceId: "",
+  ownerId: "",
+  createdAtId: "",
+  imageCoverId: "",
 };
 
 const getSinglePost = createSlice({
@@ -30,9 +30,27 @@ const getSinglePost = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    getInputValues(state, action) {
+      const {
+        title,
+        description,
+        location,
+        price,
+        owner,
+        createdAt,
+        imageCover,
+      } = action.payload;
+      state.titleId = title;
+      state.descriptionId = description;
+      state.locationId = location;
+      state.priceId = price;
+      state.ownerId = owner;
+      state.createdAtId = createdAt;
+      state.imageCoverId = imageCover;
+    },
   },
 });
 
-export const { getMovieFailed, getMovieStart, getMovieSuccess } =
+export const { getMovieFailed, getMovieStart, getMovieSuccess, getInputValues } =
   getSinglePost.actions;
 export default getSinglePost;
