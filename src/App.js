@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import CreatePost from "./pages/posts/CreatePost";
 import EditPostPage from "./pages/posts/EditPostPage";
 import PostDetailPage from "./pages/posts/PostDetailPage";
+import SigninPage from "./pages/auth/SigninPage";
+import SignupPage from "./pages/auth/SignupPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,6 +15,8 @@ function App() {
       element: <Root />,
       children: [
         { index: true, element: <HomePage /> },
+        {path: "signin", element: <SigninPage />},
+        {path: "signup", element: <SignupPage />},
         { path: "create", element: <CreatePost /> },
         {
           path: ":postId",

@@ -4,6 +4,7 @@ import createPostSlice from "./posts/reducers/createPostSlice";
 import getSinglePost from "./posts/reducers/getPostIdSlice";
 import deletePostSlice from "./posts/reducers/deletePostSlice";
 import editPostSlice from "./posts/reducers/editPostSlice";
+import authSlice from "./auth/reducers/authSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     singlePost: getSinglePost.reducer,
     editPost: editPostSlice.reducer,
     deletePost: deletePostSlice.reducer,
+    auth: authSlice.reducer,
   },
 });
 
