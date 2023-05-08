@@ -24,6 +24,7 @@ const CreatePostForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    
     dispatch(
       createPostAction({
         title: title,

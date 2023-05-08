@@ -8,9 +8,15 @@ import {
 export const createPostAction = (post) => async (dispatch) => {
   try {
     dispatch(createPostStart());
-    await axios.post("https://movstar-api.herokuapp.com/api/posts", post);
+    const token = localStorage.getItem("token");
+    await axios.post("https://movstar-api.herokuapp.com/api/posts", post, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
     dispatch(createPostSuccess());
   } catch (err) {
-    dispatch(createPostFailed(err.message));
+    dispatch(createPostFailed(err.message.err));
   }
 };
