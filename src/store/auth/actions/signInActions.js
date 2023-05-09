@@ -1,6 +1,5 @@
 import axios from "axios";
 import { setError, setLogin } from "../reducers/authSlice";
-import { useCookies } from "react-cookie"
 
 export const signinAction = (userData) => async (dispatch) => {
   try {
@@ -8,11 +7,12 @@ export const signinAction = (userData) => async (dispatch) => {
       "https://movstar-api.herokuapp.com/api/users/signin",
       userData
     );
-    const {token, data} = response.data
+    const { token } = response.data;
+    const { _id } = response.data.data.user;
 
-    localStorage.setItem("token", token)
-    console.log(response)
-    dispatch(setLogin({ user: data, token: token}))
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(_id));
+    dispatch(setLogin());
   } catch (err) {
     dispatch(setError(err.message));
   }

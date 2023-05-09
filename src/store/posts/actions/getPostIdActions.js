@@ -13,6 +13,7 @@ export const getSinglePostAction = (postId) => async (dispatch) => {
       `https://movstar-api.herokuapp.com/api/posts/${postId}`
     );
     dispatch(getMovieSuccess(response.data.data.post));
+    console.log(response)
   } catch (err) {
     dispatch(getMovieFailed(err.message));
   }

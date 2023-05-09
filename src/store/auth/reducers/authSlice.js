@@ -4,7 +4,7 @@ const initialState = {
   isAuth: false,
   isLoading: false,
   token:null,
-  id: null,
+  user: null,
   error: null,
   authInputValues: {
     username: "",
