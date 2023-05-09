@@ -11,9 +11,13 @@ const MainNav = () => {
   const isAuth = useSelector((state) => state.auth.isAuth);
 
   const signOutHandler = () => {
-    dispatch(signOutAction())
-    dispatch(setLogOut())
-  }
+    try {
+      dispatch(setLogOut());
+      dispatch(signOutAction());
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <header className={classes.header}>
       <NavLink to="/">
@@ -41,10 +45,7 @@ const MainNav = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/"
-                  onClick={signOutHandler}
-                >
+                <NavLink to="/" onClick={signOutHandler}>
                   Sign Out
                 </NavLink>
               </li>

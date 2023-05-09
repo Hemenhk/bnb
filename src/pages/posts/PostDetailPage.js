@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSinglePostAction } from "../../store/posts/actions/getPostIdActions";
 import { setLogin } from "../../store/auth/reducers/authSlice";
+import { getAuthUser } from "../../utils/auth";
 
 const PostDetailPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const PostDetailPage = () => {
 
   useEffect(() => {
     dispatch(getSinglePostAction(postId));
-    dispatch(setLogin(JSON.parse(localStorage.getItem("user"))));
+    dispatch(setLogin(JSON.parse(getAuthUser())));
   }, [dispatch, postId]);
   const isAuthor = user === post?.author;
   return (
