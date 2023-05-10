@@ -23,7 +23,7 @@ const HomePage = () => {
               <div className={classes.content}>
                 <h2>{post.title}</h2>
                 <h4>{post.location}</h4>
-                <p>{post.price} SEK night</p>
+                <p><strong>{post.price} SEK</strong> night</p>
               </div>
             </Link>
           ))}

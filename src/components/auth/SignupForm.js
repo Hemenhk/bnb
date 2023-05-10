@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { signupAction } from "../../store/auth/actions/signUpActions";
 import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
+import classes from "./styles/SigninForm.module.css";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -33,62 +34,71 @@ const SignupForm = () => {
       })
     );
     setTimeout(() => {
-      navigate("/");
+      navigate("/signin");
     }, 2000);
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <form onSubmit={submitHandler}>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className={classes.header}>
+          <h2>Sign Up</h2>
+          <h4>Create an account to post you listing</h4>
+        </div>
+        <div className={classes.formGroup}>
           <input
             type="text"
             id="username"
             name="username"
             value={username}
             onChange={changeHandler}
-            placeholder="Enter your username"
+            placeholder="Username"
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className={classes.formGroup}>
           <input
             type="email"
             id="email"
             name="email"
             value={email}
             onChange={changeHandler}
-            placeholder="Enter your email"
+            placeholder="Email Address"
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className={classes.formGroup}>
           <input
             type="password"
             id="password"
             name="password"
             value={password}
             onChange={changeHandler}
-            placeholder="Enter your password"
+            placeholder="Password"
             required
           />
         </div>
-        <div>
-          <label htmlFor="passwordConfirm">Confirm Password:</label>
+        <div className={classes.formGroup}>
           <input
             type="password"
             id="passwordConfirm"
             name="passwordConfirm"
             value={passwordConfirm}
             onChange={changeHandler}
-            placeholder="Confirm your password"
+            placeholder="Confirm Password"
             required
           />
         </div>
-        <div>
+        <div className={classes.redirect}>
+          Already have an account?{" "}
+          <span>
+            <NavLink className={classes.click} to="/signin">
+              Click here
+            </NavLink>
+          </span>{" "}
+          to login
+        </div>
+        <div className={classes.formGroup}>
           <button type="submit">
             {isLoading ? "Creating User" : "Create"}
           </button>

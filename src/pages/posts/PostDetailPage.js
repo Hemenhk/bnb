@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSinglePostAction } from "../../store/posts/actions/getPostIdActions";
 import { setLogin } from "../../store/auth/reducers/authSlice";
-import { getAuthUser } from "../../utils/auth";
+import { getAuthUser } from "../../store/utils/auth";
 
 const PostDetailPage = () => {
   const dispatch = useDispatch();

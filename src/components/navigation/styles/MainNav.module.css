@@ -28,11 +28,24 @@
 .navList li a {
   color: #000;
   text-decoration: none;
-  
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.4rem;
+  position: relative;
 }
 
-.navList li a:hover {
-  text-decoration: underline;
+.navList li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: coral;
+  transition: width 0.35s ease-in-out;
+}
+
+.navList li a:hover::before {
+  width: 100%;
 }
 
 .active {
