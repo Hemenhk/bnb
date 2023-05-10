@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getSinglePostAction } from "../../store/posts/actions/getPostIdActions";
 import { setLogin } from "../../store/auth/reducers/authSlice";
 import { getAuthUser } from "../../store/utils/auth";
+import Spinner from "../../ui/Spinner";
 
 const PostDetailPage = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ const PostDetailPage = () => {
   }, [dispatch, postId]);
   const isAuthor = user === post?.author;
   return (
-    <div>{!isLoading && <PostItem post={post} isAuthor={isAuthor} />}</div>
+    <div>
+      {isLoading ? <Spinner /> : <PostItem post={post} isAuthor={isAuthor} />}
+    </div>
   );
 };
 

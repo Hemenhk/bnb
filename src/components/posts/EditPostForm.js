@@ -43,7 +43,7 @@ const EditPostForm = () => {
       <h2 className={classes.heading}>Edit Your Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>
-          <label htmlFor="title">Edit Title:</label>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
             id="title"
@@ -52,18 +52,20 @@ const EditPostForm = () => {
             value={title}
           />
         </div>
+        <label htmlFor="description">Description:</label>
         <div className={classes.box}>
-          <label htmlFor="description">Edit Description:</label>
-          <input
-            type="text"
+          <textarea
+            rows={4}
+            cols={50}
             id="description"
             onChange={changeHandler}
+            className={classes.desc}
             name="description"
             value={description}
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="location">Edit Location:</label>
+          <label htmlFor="location">Location:</label>
           <input
             type="text"
             id="location"
@@ -73,7 +75,7 @@ const EditPostForm = () => {
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="price">Edit Price:</label>
+          <label htmlFor="price">Price:</label>
           <input
             type="number"
             id="price"
@@ -84,7 +86,7 @@ const EditPostForm = () => {
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="owner">Edit Owner:</label>
+          <label htmlFor="owner">Owner:</label>
           <input
             type="text"
             id="owner"
@@ -94,7 +96,7 @@ const EditPostForm = () => {
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="createdAt">Edit Created Date:</label>
+          <label htmlFor="createdAt">Created Date:</label>
           <input
             type="date"
             id="createdAt"
@@ -104,7 +106,7 @@ const EditPostForm = () => {
           />
         </div>
         <div className={classes.box}>
-          <label htmlFor="imageCover">Edit Image Cover:</label>
+          <label htmlFor="imageCover">Image Cover:</label>
           <input
             type="text"
             id="imageCover"
@@ -114,7 +116,9 @@ const EditPostForm = () => {
           />
         </div>
         <div>
-          <button type="submit">{isLoading ? "Submit..." : "Submitting"}</button>
+          <button type="submit">
+            {isLoading ? "Submit..." : "Submitting"}
+          </button>
           <button onClick={cancelHandler}>Cancel</button>
         </div>
       </form>

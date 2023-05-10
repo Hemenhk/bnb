@@ -24,7 +24,6 @@ const CreatePostForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    
     dispatch(
       createPostAction({
         title: title,
@@ -43,7 +42,7 @@ const CreatePostForm = () => {
   };
   return (
     <div className={classes.container}>
-        <h2 className={classes.heading}>Add A New Listing</h2>
+      <h2 className={classes.heading}>Add A New Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>
           <label htmlFor="title">Add Title:</label>
@@ -56,12 +55,14 @@ const CreatePostForm = () => {
             required
           />
         </div>
+        <label htmlFor="description">Add Description:</label>
         <div className={classes.box}>
-          <label htmlFor="description">Add Description:</label>
-          <input
-            type="text"
+          <textarea
+            rows={4}
+            cols={50}
             id="description"
             onChange={changeHandler}
+            className={classes.desc}
             name="description"
             value={description}
             required

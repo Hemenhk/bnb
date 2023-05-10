@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchAllPosts } from "../store/posts/actions/getAllPostsActions";
-import classes from "./styles/HomePage.module.css"
+import classes from "./styles/HomePage.module.css";
+import Spinner from "../ui/Spinner";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -13,22 +14,26 @@ const HomePage = () => {
     dispatch(fetchAllPosts());
   }, [dispatch]);
 
+  const loadPosts = posts
+    ? posts.map((post) => (
+        <Link to={`/${post._id}`} key={post._id} className={classes.card}>
+          <img src={post.imageCover} alt={post.title} />
+          <div className={classes.content}>
+            <h2>{post.title}</h2>
+            <h4>{post.location}</h4>
+            <p>
+              <strong>{post.price} SEK</strong> night
+            </p>
+          </div>
+        </Link>
+      ))
+    : "There are no Posts";
+
   return (
     <>
-      {!isLoading && (
-        <div className={classes.container}>
-          {posts.map((post) => (
-            <Link to={`/${post._id}`} key={post._id} className={classes.card}>
-              <img src={post.imageCover} alt={post.title} />
-              <div className={classes.content}>
-                <h2>{post.title}</h2>
-                <h4>{post.location}</h4>
-                <p><strong>{post.price} SEK</strong> night</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={classes.container}>
+        {isLoading ? <Spinner /> : loadPosts}
+      </div>
     </>
   );
 };
