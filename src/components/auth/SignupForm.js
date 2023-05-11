@@ -4,12 +4,16 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signupAction } from "../../store/auth/actions/signUpActions";
 import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
 import classes from "./styles/SigninForm.module.css";
+import Alert from "../../ui/Alert";
+import { useState } from "react";
 
 const SignupForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.auth.isLoading);
-  const authInputValues = useSelector((state) => state.auth.authInputValues);
+  const [showAlert, setShowAlert] = useState(false);
+  const { isLoading, success, authInputValues } = useSelector(
+    (state) => state.auth
+  );
   const { username, email, password, passwordConfirm } = authInputValues;
 
   const changeHandler = (e) => {
@@ -33,13 +37,25 @@ const SignupForm = () => {
         passwordConfirm: passwordConfirm,
       })
     );
+    setShowAlert(true);
     setTimeout(() => {
       navigate("/signin");
     }, 2000);
   };
 
+  const alert = success ? (
+    <Alert type="success">
+      <p>Successfully signed up your account!</p>
+    </Alert>
+  ) : (
+    <Alert type="error">
+      <p>Failed to sign up...</p>
+    </Alert>
+  );
+
   return (
     <div className={classes.container}>
+      {showAlert ? alert : null}
       <form onSubmit={submitHandler}>
         <div className={classes.header}>
           <h2>Sign Up</h2>

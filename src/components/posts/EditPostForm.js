@@ -6,13 +6,17 @@ import { getPrePop } from "../../store/posts/actions/getPostIdActions";
 import { editInputValues } from "../../store/posts/reducers/editPostSlice";
 
 import classes from "./styles/CreatePostForm.module.css";
+import { useState } from "react";
+import Alert from "../../ui/Alert";
 
 const EditPostForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showAlert, setShowAlert] = useState(false);
   const { postId } = useParams();
-  const isLoading = useSelector((state) => state.editPost.isLoading);
-  const postValues = useSelector((state) => state.editPost.postValues);
+  const { isLoading, postValues, success } = useSelector(
+    (state) => state.editPost
+  );
 
   const { title, description, location, price, owner, createdAt, imageCover } =
     postValues || {};
@@ -33,13 +37,25 @@ const EditPostForm = () => {
     e.preventDefault();
 
     dispatch(editPostAction(postId, postValues));
+    setShowAlert(true);
     setTimeout(() => {
       navigate(`/${postId}`);
     }, 2000);
   };
 
+  const alert = success ? (
+    <Alert type="success">
+      <p>Successfully Edited Post!</p>
+    </Alert>
+  ) : (
+    <Alert type="error">
+      <p>Failed to edit post...</p>
+    </Alert>
+  );
+
   return (
     <div className={classes.container}>
+      {showAlert ? alert : null}
       <h2 className={classes.heading}>Edit Your Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>

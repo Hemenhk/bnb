@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa";
 import classes from "./styles/MainNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { signOutAction } from "../../store/auth/actions/signOutActions";
 import { setLogOut } from "../../store/auth/reducers/authSlice";
+import { removeAuthToken, removeAuthUser } from "../../store/utils/auth";
 
 const MainNav = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,8 @@ const MainNav = () => {
   const signOutHandler = () => {
     try {
       dispatch(setLogOut());
-      dispatch(signOutAction());
+      removeAuthToken();
+      removeAuthUser();
     } catch (error) {
       console.log(error);
     }

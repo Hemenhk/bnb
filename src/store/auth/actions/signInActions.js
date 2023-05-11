@@ -7,12 +7,13 @@ export const signinAction = (userData) => async (dispatch) => {
       "https://movstar-api.herokuapp.com/api/users/signin",
       userData
     );
+
     const { token } = response.data;
     const { _id } = response.data.data.user;
 
+    dispatch(setLogin());
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(_id));
-    dispatch(setLogin());
   } catch (err) {
     dispatch(setError(err.message));
   }

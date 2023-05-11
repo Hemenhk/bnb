@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
+  success: false,
   error: null,
   postValues: {
     title: "",
@@ -24,10 +25,12 @@ const editPostSlice = createSlice({
     setEditPostSuccess(state, action) {
       state.isLoading = false;
       state.postValues = action.payload;
+      state.success = true;
     },
     editPostFailed(state, action) {
       state.isLoading = false;
       state.error = action.payload;
+      state.success = false;
     },
     editInputValues(state, action) {
       state.postValues = {

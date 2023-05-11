@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: false,
-  error: "",
+  success: false,
+  error: null,
   title: "",
   description: "",
   location: "",
@@ -21,10 +22,13 @@ const createPostSlice = createSlice({
     },
     createPostSuccess(state) {
       state.isLoading = false;
+      state.success = true
     },
     createPostFailed(state, action) {
       state.isLoading = false;
       state.error = action.payload;
+      state.success = false
+
     },
     setInputValues(state, action) {
       const { name, value } = action.payload;

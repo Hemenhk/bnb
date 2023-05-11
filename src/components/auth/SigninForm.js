@@ -2,16 +2,16 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signinAction } from "../../store/auth/actions/signInActions";
-import {
-  setAuthInputValues,
-  setLogin,
-} from "../../store/auth/reducers/authSlice";
+import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
 import classes from "./styles/SigninForm.module.css";
+import Alert from "../../ui/Alert";
+import { useState } from "react";
 
 const SigninForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isLoading = useSelector((state) => state.auth.isLoading);
+  const [showAlert, setShowAlert] = useState(false);
+  const { isLoading, success } = useSelector((state) => state.auth);
   const authInputValues = useSelector((state) => state.auth.authInputValues);
   const { email, password } = authInputValues;
 
@@ -27,22 +27,32 @@ const SigninForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     dispatch(
       signinAction({
         email: email,
         password: password,
       })
     );
-
+    setShowAlert(true);
     setTimeout(() => {
       navigate("/");
-      dispatch(setLogin());
     }, 2000);
   };
 
+  const alert = success ? (
+    <Alert type="success">
+      <p>Successfully Logged In!</p>
+    </Alert>
+  ) : (
+    <Alert type="error">
+      <p>Failed to login</p>
+    </Alert>
+  );
+
   return (
     <div className={classes.container}>
+      {showAlert ? alert : null}
+
       <form onSubmit={submitHandler}>
         <div className={classes.header}>
           <h2>Welcome</h2>

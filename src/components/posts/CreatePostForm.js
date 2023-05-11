@@ -5,10 +5,13 @@ import { setInputValues } from "../../store/posts/reducers/createPostSlice";
 import { createPostAction } from "../../store/posts/actions/createPostActions";
 
 import classes from "./styles/CreatePostForm.module.css";
+import { useState } from "react";
+import Alert from "../../ui/Alert";
 
 const CreatePostForm = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.createPost.isLoading);
+  const [showAlert, setShowAlert] = useState(false);
+  const { isLoading, success } = useSelector((state) => state.createPost);
   const { title, description, location, price, owner, createdAt, imageCover } =
     useSelector((state) => state.createPost);
   const navigate = useNavigate();
@@ -35,13 +38,25 @@ const CreatePostForm = () => {
         imageCover: imageCover,
       })
     );
+    setShowAlert(true);
     setTimeout(() => {
       navigate("/");
     }, 2000);
-    console.log("Movie was created successfully!");
   };
+
+  const alert = success ? (
+    <Alert type="success">
+      <p>Successfully Created Post!</p>
+    </Alert>
+  ) : (
+    <Alert type="error">
+      <p>Failed to create post...</p>
+    </Alert>
+  );
+  
   return (
     <div className={classes.container}>
+      {showAlert ? alert : null}
       <h2 className={classes.heading}>Add A New Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>

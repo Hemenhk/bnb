@@ -10,14 +10,15 @@ import Spinner from "../../ui/Spinner";
 const PostDetailPage = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
-  const post = useSelector((state) => state.singlePost.post);
-  const { user } = useSelector((state) => state.auth);
-  const isLoading = useSelector((state) => state.singlePost.isLoading);
+  const { post, isLoading } = useSelector((state) => state.singlePost);
+  const { user, isAuth } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getSinglePostAction(postId));
-    dispatch(setLogin(JSON.parse(getAuthUser())));
-  }, [dispatch, postId]);
+    if (isAuth) {
+      dispatch(setLogin(JSON.parse(getAuthUser())));
+    }
+  }, [dispatch, postId, isAuth]);
   const isAuthor = user === post?.author;
   return (
     <div>
