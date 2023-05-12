@@ -24,7 +24,7 @@ const EditPostForm = () => {
     (state) => state.editPost
   );
 
-  const { title, description, location, price, owner, createdAt, imageCover } =
+  const { title, description, location, price, createdAt, imageCover } =
     postValues || {};
 
   useEffect(() => {

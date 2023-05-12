@@ -2,23 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   dateBlur,
   descBlur,
-  emailBlur,
   imageCoverBlur,
   locationBlur,
-  passwordBlur,
-  passwordConfirmBlur,
   priceBlur,
   titleBlur,
-  usernameBlur,
 } from "../reducers/inputValidationSlice";
 
 export const useInput = () => {
   const dispatch = useDispatch();
   const {
-    usernameIsTouched,
-    emailIsTouched,
-    passwordIsTouched,
-    passwordConfirmIsTouched,
     titleIsTouched,
     descIsTouched,
     locationIsTouched,
@@ -28,9 +20,6 @@ export const useInput = () => {
   } = useSelector((state) => state.validation);
   const { title, description, location, price, createdAt, imageCover } =
     useSelector((state) => state.createPost);
-
-  const authInputValues = useSelector((state) => state.auth.authInputValues);
-  const { username, email, password, passwordConfirm } = authInputValues;
 
   const titleIsValid = title.trim() !== "";
   const titleHasError = !titleIsValid && titleIsTouched;
@@ -49,18 +38,6 @@ export const useInput = () => {
 
   const imageCoverIsValid = imageCover.trim() !== "";
   const imageCoverHasError = !imageCoverIsValid && imageCoverIsTouched;
-
-  const usernameIsValid = username.trim() !== "";
-  const usernameHasError = !usernameIsValid && usernameIsTouched;
-
-  const passwordIsValid = password.trim() !== "";
-  const passwordHasError = !passwordIsValid && passwordIsTouched;
-
-  const passwordConfirmisValid = passwordConfirm.trim() !== "";
-  const passwordConfirmHasError = !passwordConfirmisValid && passwordConfirmIsTouched;
-
-  const emailIsValid = email.includes("@") && email.trim() !== "";
-  const emailHasError = !emailIsValid && emailIsTouched;
 
   const titleBlurHandler = (e) => {
     dispatch(titleBlur());
@@ -86,22 +63,6 @@ export const useInput = () => {
     dispatch(imageCoverBlur());
   };
 
-  const usernameBlurHandler = (e) => {
-    dispatch(usernameBlur())
-  }
-
-  const emailBlurHandler = (e) => {
-    dispatch(emailBlur())
-  }
-
-  const passwordBlurHandler = (e) => {
-    dispatch(passwordBlur())
-  }
-
-  const passwordConfirmBlurHandler = (e) => {
-    dispatch(passwordConfirmBlur())
-  }
-
   return {
     titleHasError,
     descHasError,
@@ -109,19 +70,11 @@ export const useInput = () => {
     priceHasError,
     dateHasError,
     imageCoverHasError,
-    usernameHasError,
-    passwordHasError,
-    passwordConfirmHasError,
-    emailHasError,
     titleBlurHandler,
     descBlurHandler,
     locationBlurHandler,
     priceBlurHandler,
     dateBlurHandler,
     imageBlurHandler,
-    usernameBlurHandler,
-    passwordBlurHandler,
-    passwordConfirmBlurHandler,
-    emailBlurHandler
   };
 };

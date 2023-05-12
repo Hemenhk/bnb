@@ -1,8 +1,8 @@
 import React from "react";
-import { useInput } from "../../../store/validation/actions/inputValidationActions";
+import { useAuthInput } from "../../../store/validation/actions/authValidationActions";
 
 const PasswordConfirmInput = ({ passwordConfirm, changeHandler }) => {
-  const { passwordConfirmBlurHandler, passwordConfirmHasError } = useInput();
+  const { passwordConfirmBlurHandler, passwordConfirmHasError } = useAuthInput();
 
   const inputClasses = passwordConfirmHasError
     ? "form-control invalid"

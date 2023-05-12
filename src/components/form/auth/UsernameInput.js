@@ -1,8 +1,8 @@
 import React from "react";
-import { useInput } from "../../../store/validation/actions/inputValidationActions";
+import { useAuthInput } from "../../../store/validation/actions/authValidationActions";
 
 const UsernameInput = ({ username, changeHandler }) => {
-  const { usernameBlurHandler, usernameHasError } = useInput();
+  const { usernameBlurHandler, usernameHasError } = useAuthInput();
   const inputClasses = usernameHasError
     ? "form-control invalid"
     : "form-control";

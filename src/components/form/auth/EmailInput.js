@@ -1,8 +1,8 @@
 import React from "react";
-import { useInput } from "../../../store/validation/actions/inputValidationActions";
+import { useAuthInput } from "../../../store/validation/actions/authValidationActions";
 
 const EmailInput = ({ email, changeHandler }) => {
-  const { emailBlurHandler, emailHasError } = useInput();
+  const { emailBlurHandler, emailHasError } = useAuthInput();
   const inputClasses = emailHasError ? "form-control invalid" : "form-control";
 
   return (
