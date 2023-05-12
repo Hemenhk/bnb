@@ -6,6 +6,8 @@ import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
 import classes from "./styles/SigninForm.module.css";
 import Alert from "../../ui/Alert";
 import { useState } from "react";
+import EmailInput from "../form/auth/EmailInput";
+import PasswordInput from "../form/auth/PasswordInput";
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -59,26 +61,10 @@ const SigninForm = () => {
           <h4>Log in to your account using email and password</h4>
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={changeHandler}
-            placeholder="Email Address"
-            required
-          />
+          <EmailInput changeHandler={changeHandler} value={email} />
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={changeHandler}
-            placeholder="Password"
-            required
-          />
+          <PasswordInput changeHandler={changeHandler} value={password} />
         </div>
         <div className={classes.redirect}>
           Don't have an account?{" "}

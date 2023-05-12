@@ -5,6 +5,7 @@ import getSinglePost from "./posts/reducers/getPostIdSlice";
 import deletePostSlice from "./posts/reducers/deletePostSlice";
 import editPostSlice from "./posts/reducers/editPostSlice";
 import authSlice from "./auth/reducers/authSlice";
+import inputValidationSlice from "./validation/reducers/inputValidationSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     editPost: editPostSlice.reducer,
     deletePost: deletePostSlice.reducer,
     auth: authSlice.reducer,
+    validation: inputValidationSlice.reducer
   },
 });
 

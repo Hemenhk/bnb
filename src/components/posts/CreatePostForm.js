@@ -7,6 +7,12 @@ import { createPostAction } from "../../store/posts/actions/createPostActions";
 import classes from "./styles/CreatePostForm.module.css";
 import { useState } from "react";
 import Alert from "../../ui/Alert";
+import TitleInput from "../form/posts/TitleInput";
+import DescInput from "../form/posts/DescInput";
+import LocationInput from "../form/posts/LocationInput";
+import PriceInput from "../form/posts/PriceInput";
+import DateInput from "../form/posts/DateInput";
+import ImageCoverInput from "../form/posts/ImageCoverInput";
 
 const CreatePostForm = () => {
   const dispatch = useDispatch();
@@ -53,90 +59,30 @@ const CreatePostForm = () => {
       <p>Failed to create post...</p>
     </Alert>
   );
-  
+
   return (
     <div className={classes.container}>
       {showAlert ? alert : null}
       <h2 className={classes.heading}>Add A New Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>
-          <label htmlFor="title">Add Title:</label>
-          <input
-            type="text"
-            id="title"
-            onChange={changeHandler}
-            name="title"
-            value={title}
-            required
-          />
+          <TitleInput changeHandler={changeHandler} value={title} />
         </div>
         <label htmlFor="description">Add Description:</label>
         <div className={classes.box}>
-          <textarea
-            rows={4}
-            cols={50}
-            id="description"
-            onChange={changeHandler}
-            className={classes.desc}
-            name="description"
-            value={description}
-            required
-          />
+          <DescInput changeHandler={changeHandler} value={description} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="location">Add Location:</label>
-          <input
-            type="text"
-            id="location"
-            onChange={changeHandler}
-            name="location"
-            value={location}
-            required
-          />
+          <LocationInput changeHandler={changeHandler} value={location} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="price">Add Price:</label>
-          <input
-            type="number"
-            id="price"
-            onChange={changeHandler}
-            name="price"
-            value={price}
-            required
-          />
+          <PriceInput changeHandler={changeHandler} value={price} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="owner">Add Owner:</label>
-          <input
-            type="text"
-            id="owner"
-            onChange={changeHandler}
-            name="owner"
-            value={owner}
-            required
-          />
+          <DateInput changeHandler={changeHandler} value={createdAt} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="createdAt">Add Created Date:</label>
-          <input
-            type="date"
-            id="createdAt"
-            onChange={changeHandler}
-            name="createdAt"
-            value={createdAt}
-            required
-          />
-        </div>
-        <div className={classes.box}>
-          <label htmlFor="imageCover">Add Image Cover:</label>
-          <input
-            type="text"
-            id="imageCover"
-            onChange={changeHandler}
-            name="imageCover"
-            value={imageCover}
-            required
-          />
+          <ImageCoverInput changeHandler={changeHandler} value={imageCover} />
         </div>
         <div>
           <button type="submit">{isLoading ? "Creating..." : "Create"}</button>

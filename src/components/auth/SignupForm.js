@@ -6,6 +6,10 @@ import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
 import classes from "./styles/SigninForm.module.css";
 import Alert from "../../ui/Alert";
 import { useState } from "react";
+import EmailInput from "../form/auth/EmailInput";
+import PasswordInput from "../form/auth/PasswordInput";
+import UsernameInput from "../form/auth/UsernameInput";
+import PasswordConfirmInput from "../form/auth/PasswordConfirmInput";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -62,47 +66,18 @@ const SignupForm = () => {
           <h4>Create an account to post you listing</h4>
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={changeHandler}
-            placeholder="Username"
-            required
-          />
+          <UsernameInput changeHandler={changeHandler} value={username} />
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={changeHandler}
-            placeholder="Email Address"
-            required
-          />
+          <EmailInput changeHandler={changeHandler} value={email} />
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={changeHandler}
-            placeholder="Password"
-            required
-          />
+          <PasswordInput changeHandler={changeHandler} value={password} />
         </div>
         <div className={classes.formGroup}>
-          <input
-            type="password"
-            id="passwordConfirm"
-            name="passwordConfirm"
+          <PasswordConfirmInput
+            changeHandler={changeHandler}
             value={passwordConfirm}
-            onChange={changeHandler}
-            placeholder="Confirm Password"
-            required
           />
         </div>
         <div className={classes.redirect}>

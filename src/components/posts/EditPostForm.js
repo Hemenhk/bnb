@@ -8,6 +8,12 @@ import { editInputValues } from "../../store/posts/reducers/editPostSlice";
 import classes from "./styles/CreatePostForm.module.css";
 import { useState } from "react";
 import Alert from "../../ui/Alert";
+import TitleInput from "../form/posts/TitleInput";
+import DescInput from "../form/posts/DescInput";
+import LocationInput from "../form/posts/LocationInput";
+import PriceInput from "../form/posts/PriceInput";
+import DateInput from "../form/posts/DateInput";
+import ImageCoverInput from "../form/posts/ImageCoverInput";
 
 const EditPostForm = () => {
   const dispatch = useDispatch();
@@ -59,76 +65,25 @@ const EditPostForm = () => {
       <h2 className={classes.heading}>Edit Your Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            onChange={changeHandler}
-            name="title"
-            value={title}
-          />
+          <TitleInput changeHandler={changeHandler} title={title} />
         </div>
         <label htmlFor="description">Description:</label>
         <div className={classes.box}>
-          <textarea
-            rows={4}
-            cols={50}
-            id="description"
-            onChange={changeHandler}
-            className={classes.desc}
-            name="description"
-            value={description}
-          />
+          <DescInput changeHandler={changeHandler} description={description} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            onChange={changeHandler}
-            name="location"
-            value={location}
-          />
+          <LocationInput changeHandler={changeHandler} location={location} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="price">Price:</label>
-          <input
-            type="number"
-            id="price"
-            onChange={changeHandler}
-            name="price"
-            value={price}
-            required
-          />
+          <PriceInput changeHandler={changeHandler} price={price} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="owner">Owner:</label>
-          <input
-            type="text"
-            id="owner"
-            onChange={changeHandler}
-            name="owner"
-            value={owner}
-          />
+          <DateInput changeHandler={changeHandler} createdAt={createdAt} />
         </div>
         <div className={classes.box}>
-          <label htmlFor="createdAt">Created Date:</label>
-          <input
-            type="date"
-            id="createdAt"
-            onChange={changeHandler}
-            name="createdAt"
-            value={createdAt}
-          />
-        </div>
-        <div className={classes.box}>
-          <label htmlFor="imageCover">Image Cover:</label>
-          <input
-            type="text"
-            id="imageCover"
-            onChange={changeHandler}
-            name="imageCover"
-            value={imageCover}
+          <ImageCoverInput
+            changeHandler={changeHandler}
+            imageCover={imageCover}
           />
         </div>
         <div>
