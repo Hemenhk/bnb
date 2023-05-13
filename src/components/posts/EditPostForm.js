@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editPostAction } from "../../store/posts/actions/editPostActions";
 import { getPrePop } from "../../store/posts/actions/getPostIdActions";
-import { editInputValues } from "../../store/posts/reducers/editPostSlice";
 
 import classes from "./styles/CreatePostForm.module.css";
 import { useState } from "react";
@@ -14,6 +13,7 @@ import LocationInput from "../form/posts/LocationInput";
 import PriceInput from "../form/posts/PriceInput";
 import DateInput from "../form/posts/DateInput";
 import ImageCoverInput from "../form/posts/ImageCoverInput";
+import { setInputValues } from "../../store/posts/reducers/createPostSlice";
 
 const EditPostForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const EditPostForm = () => {
   const [showAlert, setShowAlert] = useState(false);
   const { postId } = useParams();
   const { isLoading, postValues, success } = useSelector(
-    (state) => state.editPost
+    (state) => state.createPost
   );
 
   const { title, description, location, price, createdAt, imageCover } =
@@ -32,7 +32,7 @@ const EditPostForm = () => {
   }, [dispatch, postId]);
 
   const changeHandler = (e) => {
-    dispatch(editInputValues({ name: e.target.name, value: e.target.value }));
+    dispatch(setInputValues({ name: e.target.name, value: e.target.value }));
   };
 
   const cancelHandler = () => {
@@ -65,6 +65,7 @@ const EditPostForm = () => {
       <h2 className={classes.heading}>Edit Your Listing</h2>
       <form onSubmit={submitHandler}>
         <div className={classes.box}>
+          <label htmlFor="title">Title:</label>
           <TitleInput changeHandler={changeHandler} title={title} />
         </div>
         <label htmlFor="description">Description:</label>
@@ -72,15 +73,23 @@ const EditPostForm = () => {
           <DescInput changeHandler={changeHandler} description={description} />
         </div>
         <div className={classes.box}>
+          <label htmlFor="location">location:</label>
+
           <LocationInput changeHandler={changeHandler} location={location} />
         </div>
         <div className={classes.box}>
+          <label htmlFor="price">Price:</label>
+
           <PriceInput changeHandler={changeHandler} price={price} />
         </div>
         <div className={classes.box}>
+          <label htmlFor="createdAt">Created At:</label>
+
           <DateInput changeHandler={changeHandler} createdAt={createdAt} />
         </div>
         <div className={classes.box}>
+          <label htmlFor="imageCover">Image Cover:</label>
+
           <ImageCoverInput
             changeHandler={changeHandler}
             imageCover={imageCover}

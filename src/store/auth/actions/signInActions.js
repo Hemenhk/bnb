@@ -9,11 +9,10 @@ export const signinAction = (userData) => async (dispatch) => {
     );
 
     const { token } = response.data;
-    const { _id } = response.data.data.user;
+    const { user } = response.data.data;
 
-    dispatch(setLogin());
+    dispatch(setLogin(user));
     localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(_id));
   } catch (err) {
     dispatch(setError(err.message));
   }

@@ -4,13 +4,15 @@ const initialState = {
   isLoading: false,
   success: false,
   error: null,
-  title: "",
-  description: "",
-  location: "",
-  price: "",
-  owner: "",
-  createdAt: "",
-  imageCover: "",
+  postValues: {
+    title: "",
+    description: "",
+    location: "",
+    price: "",
+    owner: "",
+    createdAt: "",
+    imageCover: "",
+  },
 };
 
 const createPostSlice = createSlice({
@@ -22,17 +24,23 @@ const createPostSlice = createSlice({
     },
     createPostSuccess(state) {
       state.isLoading = false;
-      state.success = true
+      state.success = true;
+    },
+    setEditPostSuccess(state, action) {
+      state.isLoading = false;
+      state.postValues = action.payload;
+      state.success = true;
     },
     createPostFailed(state, action) {
       state.isLoading = false;
       state.error = action.payload;
-      state.success = false
-
+      state.success = false;
     },
     setInputValues(state, action) {
-      const { name, value } = action.payload;
-      return { ...state, [name]: value };
+      state.postValues = {
+        ...state.postValues,
+        [action.payload.name]: action.payload.value,
+      };
     },
   },
 });
@@ -41,6 +49,7 @@ export const {
   createPostFailed,
   createPostStart,
   createPostSuccess,
+  setEditPostSuccess,
   setInputValues,
 } = createPostSlice.actions;
 export default createPostSlice;

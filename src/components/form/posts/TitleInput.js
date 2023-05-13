@@ -9,7 +9,6 @@ const TitleInput = ({ changeHandler, title }) => {
 
   return (
     <div className={inputClasses}>
-      <label htmlFor="title">Add Title:</label>
       <input
         type="text"
         id="title"
@@ -17,6 +16,7 @@ const TitleInput = ({ changeHandler, title }) => {
         onBlur={titleBlurHandler}
         name="title"
         value={title}
+        placeholder="Title"
         required
       />
       {titleHasError && <p className="error-text">Title must not be empty!</p>}

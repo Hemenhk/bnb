@@ -27,7 +27,7 @@ export const useAuthInput = () => {
   const passwordConfirmisValid = passwordConfirm.trim() !== "";
   const passwordConfirmHasError =
     !passwordConfirmisValid && passwordConfirmIsTouched;
-
+    
   const emailIsValid = email.includes("@") && email.trim() !== "";
   const emailHasError = !emailIsValid && emailIsTouched;
 
@@ -48,6 +48,10 @@ export const useAuthInput = () => {
   };
 
   return {
+    usernameIsValid,
+    emailIsValid,
+    passwordIsValid,
+    passwordConfirmisValid,
     usernameHasError,
     passwordHasError,
     passwordConfirmHasError,

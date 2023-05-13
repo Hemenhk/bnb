@@ -36,11 +36,15 @@ form {
   outline: none;
 }
 
-label {
+form > label {
   margin-bottom: 0.5rem;
   margin-right: 20px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
+}
+
+.box > label {
+  font-weight: 500;
 }
 
 input {

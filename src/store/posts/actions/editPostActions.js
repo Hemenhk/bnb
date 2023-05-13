@@ -2,8 +2,8 @@ import axios from "axios";
 import {
   editPostFailed,
   editPostStart,
-  setEditPostSuccess,
 } from "../reducers/editPostSlice";
+import { setEditPostSuccess } from "../reducers/createPostSlice";
 
 export const editPostAction = (postId, postData) => async (dispatch) => {
   try {

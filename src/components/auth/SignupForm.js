@@ -32,19 +32,20 @@ const SignupForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    dispatch(
-      signupAction({
-        username: username,
-        email: email,
-        password: password,
-        passwordConfirm: passwordConfirm,
-      })
-    );
-    setShowAlert(true);
-    setTimeout(() => {
-      navigate("/signin");
-    }, 2000);
+    try {
+      dispatch(
+        signupAction({
+          username: username,
+          email: email,
+          password: password,
+          passwordConfirm: passwordConfirm,
+        })
+      );
+      setShowAlert(true);
+      setTimeout(() => {
+        navigate("/signin");
+      }, 2000);
+    } catch (error) {}
   };
 
   const alert = success ? (

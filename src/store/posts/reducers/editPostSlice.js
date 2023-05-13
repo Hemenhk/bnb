@@ -32,19 +32,9 @@ const editPostSlice = createSlice({
       state.error = action.payload;
       state.success = false;
     },
-    editInputValues(state, action) {
-      state.postValues = {
-        ...state.postValues,
-        [action.payload.name]: action.payload.value,
-      };
-    },
   },
 });
 
-export const {
-  editInputValues,
-  editPostFailed,
-  editPostStart,
-  setEditPostSuccess,
-} = editPostSlice.actions;
+export const { editPostFailed, editPostStart, setEditPostSuccess } =
+  editPostSlice.actions;
 export default editPostSlice;

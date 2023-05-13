@@ -29,6 +29,7 @@ const SigninForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     dispatch(
       signinAction({
         email: email,
@@ -54,7 +55,6 @@ const SigninForm = () => {
   return (
     <div className={classes.container}>
       {showAlert ? alert : null}
-
       <form onSubmit={submitHandler}>
         <div className={classes.header}>
           <h2>Welcome</h2>

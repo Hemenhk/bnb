@@ -1,10 +1,10 @@
 import axios from "axios";
-import { setEditPostSuccess } from "../reducers/editPostSlice";
 import {
   getMovieFailed,
   getMovieStart,
   getMovieSuccess,
 } from "../reducers/getPostIdSlice";
+import { setEditPostSuccess } from "../reducers/createPostSlice";
 
 export const getSinglePostAction = (postId) => async (dispatch) => {
   try {

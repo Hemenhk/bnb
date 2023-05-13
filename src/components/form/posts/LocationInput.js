@@ -10,7 +10,6 @@ const LocationInput = ({ changeHandler, location }) => {
 
   return (
     <div className={inputClasses}>
-      <label htmlFor="location">Add Location:</label>
       <input
         type="text"
         id="location"
@@ -18,6 +17,7 @@ const LocationInput = ({ changeHandler, location }) => {
         onBlur={locationBlurHandler}
         name="location"
         value={location}
+        placeholder="Location"
         required
       />
       {locationHasError && (

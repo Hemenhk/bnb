@@ -3,27 +3,26 @@ import { NavLink } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa";
 import classes from "./styles/MainNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogOut, setLogin } from "../../store/auth/reducers/authSlice";
-import { removeAuthToken, removeAuthUser } from "../../store/utils/auth";
+import { setLogOut } from "../../store/auth/reducers/authSlice";
+import { removeAuthToken } from "../../store/utils/auth";
 
 const MainNav = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const user = useSelector(state => state.auth.user)
+  const { isAuth, user } = useSelector((state) => state.auth);
 
   const signOutHandler = () => {
     try {
       dispatch(setLogOut());
       removeAuthToken();
-      removeAuthUser();
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <header className={classes.header}>
-      <NavLink to="/">
+      <NavLink to="/" className={classes.icon}>
         <FaAirbnb className={classes.logo} />
+        <p className={classes.logoText}>BnB</p>
       </NavLink>
       <nav>
         <ul className={classes.navList}>
@@ -51,8 +50,11 @@ const MainNav = () => {
                   Sign Out
                 </NavLink>
               </li>
-            </>
 
+              <li>
+                <NavLink>{user?.username}</NavLink>
+              </li>
+            </>
           )}
           {!isAuth && (
             <>

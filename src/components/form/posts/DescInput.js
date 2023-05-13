@@ -18,6 +18,7 @@ const DescInput = ({ changeHandler, description }) => {
         className={classes.desc}
         name="description"
         value={description}
+        placeholder="Description"
         required
       />
       {descHasError && (

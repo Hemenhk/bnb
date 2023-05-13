@@ -3,7 +3,6 @@ const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
   isAuth: false,
   isLoading: false,
-  token: null,
   user: null,
   success: false,
   error: null,
@@ -21,7 +20,6 @@ const authSlice = createSlice({
   reducers: {
     setLogin(state, action) {
       state.isAuth = true;
-      state.token = action.payload;
       state.user = action.payload;
       state.isLoading = false;
       state.success = true;
@@ -29,7 +27,6 @@ const authSlice = createSlice({
     setLogOut(state) {
       state.isAuth = false;
       state.isLoading = false;
-      state.token = null;
       state.user = null;
     },
     setIsLoading(state) {

@@ -9,7 +9,6 @@ const ImageCoverInput = ({ changeHandler, imageCover }) => {
 
   return (
     <div className={inputClasses}>
-      <label htmlFor="imageCover">Add Image Cover:</label>
       <input
         type="text"
         id="imageCover"
@@ -17,6 +16,7 @@ const ImageCoverInput = ({ changeHandler, imageCover }) => {
         onBlur={imageBlurHandler}
         name="imageCover"
         value={imageCover}
+        placeholder="Image Cover"
         required
       />
       {imageCoverHasError && (

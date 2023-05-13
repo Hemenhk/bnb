@@ -8,7 +8,6 @@ const DateInput = ({ changeHandler, createdAt }) => {
   const inputClasses = dateHasError ? "form-control invalid" : "form-control";
   return (
     <div className={inputClasses}>
-      <label htmlFor="createdAt">Add Created Date:</label>
       <input
         type="date"
         id="createdAt"
@@ -16,6 +15,7 @@ const DateInput = ({ changeHandler, createdAt }) => {
         onBlur={dateBlurHandler}
         name="createdAt"
         value={createdAt}
+        placeholder="Created Date"
         required
       />
       {dateHasError && <p className="error-text">Created Date must not be empty!</p>}

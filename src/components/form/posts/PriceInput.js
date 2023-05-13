@@ -8,7 +8,6 @@ const PriceInput = ({ changeHandler, price }) => {
 
   return (
     <div className={inputClasses}>
-      <label htmlFor="price">Add Price:</label>
       <input
         type="number"
         id="price"
@@ -16,6 +15,7 @@ const PriceInput = ({ changeHandler, price }) => {
         onBlur={priceBlurHandler}
         name="price"
         value={price}
+        placeholder="Price"
         required
       />
       {priceHasError && <p className="error-text">Price must not be empty!</p>}

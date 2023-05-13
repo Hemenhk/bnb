@@ -18,8 +18,11 @@ export const useInput = () => {
     dateIsTouched,
     imageCoverIsTouched,
   } = useSelector((state) => state.validation);
+
+  const postValues = useSelector((state) => state.createPost.postValues);
+
   const { title, description, location, price, createdAt, imageCover } =
-    useSelector((state) => state.createPost);
+    postValues || {};
 
   const titleIsValid = title.trim() !== "";
   const titleHasError = !titleIsValid && titleIsTouched;
@@ -30,10 +33,10 @@ export const useInput = () => {
   const locationIsValid = location.trim() !== "";
   const locationHasError = !locationIsValid && locationIsTouched;
 
-  const priceIsValid = price.trim() !== "";
+  const priceIsValid = price !== "";
   const priceHasError = !priceIsValid && priceIsTouched;
 
-  const dateIsValid = createdAt.trim() !== "";
+  const dateIsValid = createdAt;
   const dateHasError = !dateIsValid && dateIsTouched;
 
   const imageCoverIsValid = imageCover.trim() !== "";

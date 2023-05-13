@@ -79,6 +79,8 @@ const CreatePostForm = () => {
           <PriceInput changeHandler={changeHandler} value={price} />
         </div>
         <div className={classes.box}>
+          <label htmlFor="description">Add Created Date:</label>
+
           <DateInput changeHandler={changeHandler} value={createdAt} />
         </div>
         <div className={classes.box}>
