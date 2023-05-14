@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FaAirbnb } from "react-icons/fa";
 import classes from "./styles/MainNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogOut } from "../../store/auth/reducers/authSlice";
-import { removeAuthToken } from "../../store/utils/auth";
+import { setLogOut } from "../../store/auth/reducers/authSlice.js";
+import { removeAuthToken } from "../../store/utils/auth.js";
 
 const MainNav = () => {
   const dispatch = useDispatch();

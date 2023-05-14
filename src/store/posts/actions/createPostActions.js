@@ -12,11 +12,11 @@ export const createPostAction = (post) => async (dispatch) => {
     await axios.post("https://movstar-api.herokuapp.com/api/posts", post, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     dispatch(createPostSuccess());
   } catch (err) {
-    dispatch(createPostFailed(err.message.err));
+    dispatch(createPostFailed(err.message));
   }
 };

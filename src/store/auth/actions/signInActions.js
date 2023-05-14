@@ -13,7 +13,9 @@ export const signinAction = (userData) => async (dispatch) => {
 
     dispatch(setLogin(user));
     localStorage.setItem("token", token);
+    return response;
   } catch (err) {
     dispatch(setError(err.message));
+    return Promise.reject(err)
   }
 };

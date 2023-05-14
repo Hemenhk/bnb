@@ -1,14 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Root from "./pages/Root";
-import HomePage from "./pages/HomePage";
-import CreatePost from "./pages/posts/CreatePost";
-import EditPostPage from "./pages/posts/EditPostPage";
-import PostDetailPage from "./pages/posts/PostDetailPage";
-import SigninPage from "./pages/auth/SigninPage";
-import SignupPage from "./pages/auth/SignupPage";
+import Root from "./pages/Root.js";
+import HomePage from "./pages/HomePage.js";
+import CreatePost from "./pages/posts/CreatePost.js";
+import EditPostPage from "./pages/posts/EditPostPage.js";
+import PostDetailPage from "./pages/posts/PostDetailPage.js";
+import SigninPage from "./pages/auth/SigninPage.js";
+import SignupPage from "./pages/auth/SignupPage.js";
 
-function App() {
+const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",

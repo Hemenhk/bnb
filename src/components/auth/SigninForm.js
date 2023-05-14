@@ -27,19 +27,23 @@ const SigninForm = () => {
     navigate("/");
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-
-    dispatch(
-      signinAction({
-        email: email,
-        password: password,
-      })
-    );
-    setShowAlert(true);
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    try {
+      await dispatch(
+        signinAction({
+          email: email,
+          password: password,
+        })
+      )
+      setShowAlert(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      setShowAlert(true)
+      console.log(error)
+    }
   };
 
   const alert = success ? (

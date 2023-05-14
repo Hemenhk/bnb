@@ -30,10 +30,10 @@ const SignupForm = () => {
     navigate("/");
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      dispatch(
+      await dispatch(
         signupAction({
           username: username,
           email: email,
@@ -45,7 +45,9 @@ const SignupForm = () => {
       setTimeout(() => {
         navigate("/signin");
       }, 2000);
-    } catch (error) {}
+    } catch (error) {
+      setShowAlert(true);
+    }
   };
 
   const alert = success ? (

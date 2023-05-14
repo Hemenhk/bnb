@@ -17,9 +17,11 @@ import ImageCoverInput from "../form/posts/ImageCoverInput";
 const CreatePostForm = () => {
   const dispatch = useDispatch();
   const [showAlert, setShowAlert] = useState(false);
-  const { isLoading, success } = useSelector((state) => state.createPost);
+  const { isLoading, success, postValues } = useSelector(
+    (state) => state.createPost
+  );
   const { title, description, location, price, owner, createdAt, imageCover } =
-    useSelector((state) => state.createPost);
+    postValues;
   const navigate = useNavigate();
 
   const changeHandler = (e) => {
@@ -30,9 +32,8 @@ const CreatePostForm = () => {
     navigate("/");
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-
     dispatch(
       createPostAction({
         title: title,
