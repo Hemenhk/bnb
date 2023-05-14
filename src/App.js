@@ -7,6 +7,7 @@ import EditPostPage from "./pages/posts/EditPostPage.js";
 import PostDetailPage from "./pages/posts/PostDetailPage.js";
 import SigninPage from "./pages/auth/SigninPage.js";
 import SignupPage from "./pages/auth/SignupPage.js";
+import PostByAuthor from "./pages/posts/PostByAuthor";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -15,16 +16,21 @@ const App = () => {
       element: <Root />,
       children: [
         { index: true, element: <HomePage /> },
-        {path: "signin", element: <SigninPage />},
-        {path: "signup", element: <SignupPage />},
+        { path: "signin", element: <SigninPage /> },
+        { path: "signup", element: <SignupPage /> },
         { path: "create", element: <CreatePost /> },
         {
-          path: ":postId",
+          path: "posts/:postId",
           id: "post-id",
           children: [
             { index: true, element: <PostDetailPage /> },
             { path: "edit", element: <EditPostPage /> },
           ],
+        },
+        {
+          path: "profile/:profileId",
+          id: "profile-id",
+          children: [{ index: true, element: <PostByAuthor /> }],
         },
       ],
     },
@@ -34,6 +40,6 @@ const App = () => {
       <RouterProvider router={router} />
     </div>
   );
-}
+};
 
 export default App;

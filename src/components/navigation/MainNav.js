@@ -52,7 +52,7 @@ const MainNav = () => {
               </li>
 
               <li>
-                <NavLink>{user?.username}</NavLink>
+                <NavLink to={`/profile/${user?._id}`}>{user?.username}</NavLink>
               </li>
             </>
           )}

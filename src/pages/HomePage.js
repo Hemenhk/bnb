@@ -7,16 +7,15 @@ import { fetchAllPosts } from "../store/posts/actions/getAllPostsActions.js";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.allPosts.postList);
-  const isLoading = useSelector((state) => state.allPosts.isLoading);
+  const {postList, isLoading} = useSelector((state) => state.allPosts);
 
   useEffect(() => {
     dispatch(fetchAllPosts());
   }, [dispatch]);
 
-  const loadPosts = posts
-    ? posts.map((post) => (
-        <Link id="link" to={`/${post._id}`} key={post._id} className={classes.card}>
+  const loadPosts = postList
+    ? postList.map((post) => (
+        <Link id="link" to={`/posts/${post._id}`} key={post._id} className={classes.card}>
           <img src={post.imageCover} alt={post.title} />
           <div className={classes.content}>
             <h2>{post.title}</h2>
