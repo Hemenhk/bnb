@@ -52,7 +52,12 @@ const MainNav = () => {
               </li>
 
               <li>
-                <NavLink to={`/profile/${user?._id}`}>{user?.username}</NavLink>
+                <NavLink
+                  to={`/profile/${user?._id}`}
+                  className={({ isActive }) => (isActive ? classes.active : "")}
+                >
+                  {user?.username}
+                </NavLink>
               </li>
             </>
           )}

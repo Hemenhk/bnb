@@ -45,7 +45,7 @@ const EditPostForm = () => {
     dispatch(editPostAction(postId, postValues));
     setShowAlert(true);
     setTimeout(() => {
-      navigate(`/${postId}`);
+      navigate(`/posts/${postId}`);
     }, 2000);
   };
 
@@ -97,7 +97,7 @@ const EditPostForm = () => {
         </div>
         <div>
           <button type="submit">
-            {isLoading ? "Submit..." : "Submitting"}
+            {isLoading ? "Submitting..." : "Submit"}
           </button>
           <button onClick={cancelHandler}>Cancel</button>
         </div>

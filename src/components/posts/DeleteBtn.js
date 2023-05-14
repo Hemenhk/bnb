@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePostAction } from "../../store/posts/actions/deletePostActions";
+import classes from "./styles/DeleteBtn.module.css"
 
 const DeleteBtn = ({ setShowAlert }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const DeleteBtn = ({ setShowAlert }) => {
   };
   return (
     <div>
-      <button onClick={deleteHandler}>Delete</button>
+      <button className={classes.btn} onClick={deleteHandler}>Delete</button>
     </div>
   );
 };
