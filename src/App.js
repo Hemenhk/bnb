@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root.js";
 import HomePage from "./pages/HomePage.js";
 import CreatePost from "./pages/posts/CreatePost.js";
@@ -9,7 +9,7 @@ import SignupPage from "./pages/auth/SignupPage.js";
 import PostByAuthor from "./pages/posts/PostByAuthor";
 
 const App = () => {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Root />,
