@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bnb/static/css/main.65cd0d77.css",
+    "main.js": "/bnb/static/js/main.523b545e.js",
+    "static/js/787.956a704f.chunk.js": "/bnb/static/js/787.956a704f.chunk.js",
+    "index.html": "/bnb/index.html",
+    "main.65cd0d77.css.map": "/bnb/static/css/main.65cd0d77.css.map",
+    "main.523b545e.js.map": "/bnb/static/js/main.523b545e.js.map",
+    "787.956a704f.chunk.js.map": "/bnb/static/js/787.956a704f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65cd0d77.css",
+    "static/js/main.523b545e.js"
+  ]
+}
