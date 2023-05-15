@@ -4,10 +4,9 @@
   width: 70%;
   max-width: 400px;
   padding: 2rem;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: var(--background-image);
   border-radius: 5px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 form {
@@ -43,6 +42,7 @@ input {
   padding: 0.5rem;
   margin-top: 10px;
   border: none;
+  border-radius: 2px;
   border-bottom: 1px solid #e0e0e0;
   font-family: "Montserrat Alternatas", sans-serif;
   outline: 0;

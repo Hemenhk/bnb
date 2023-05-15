@@ -1,0 +1,27 @@
+.btn {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.sun {
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.sun:hover {
+  color: coral;
+}
+
+.moon {
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.moon:hover {
+  color: coral;
+}

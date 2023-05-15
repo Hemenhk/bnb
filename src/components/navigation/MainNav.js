@@ -5,6 +5,7 @@ import classes from "./styles/MainNav.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogOut } from "../../store/auth/reducers/authSlice.js";
 import { removeAuthToken } from "../../store/utils/auth.js";
+import ThemeBtn from "../../ui/ThemeBtn";
 
 const MainNav = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const MainNav = () => {
               </li>
             </>
           )}
+          <ThemeBtn />
         </ul>
       </nav>
     </header>
