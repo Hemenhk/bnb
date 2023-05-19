@@ -7,12 +7,14 @@ import PostDetailPage from "./pages/posts/PostDetailPage.js";
 import SigninPage from "./pages/auth/SigninPage.js";
 import SignupPage from "./pages/auth/SignupPage.js";
 import PostByAuthor from "./pages/posts/PostByAuthor";
+import ErrorPage from "./pages/ErrorPage.js";
 
 const App = () => {
   const router = createHashRouter([
     {
       path: "/",
       element: <Root />,
+      errorElement: <ErrorPage />,
       children: [
         { index: true, element: <HomePage /> },
         { path: "signin", element: <SigninPage /> },
