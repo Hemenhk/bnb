@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaAirbnb } from "react-icons/fa";
-import classes from "./styles/MainNav.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import NavLinks from "./NavLinks.js";
+import SideNav from "./SideNav";
+import Backdrop from "../../ui/Backdrop";
 import { setLogOut } from "../../store/auth/reducers/authSlice.js";
 import { removeAuthToken } from "../../store/utils/auth.js";
-import ThemeBtn from "../../ui/ThemeBtn";
+import { FaAirbnb } from "react-icons/fa";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import classes from "./styles/MainNav.module.css";
 
 const MainNav = () => {
+  const [sideNavIsOpen, setSideNavIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const { isAuth, user } = useSelector((state) => state.auth);
+
+  const openSideNavHandler = () => {
+    setSideNavIsOpen(true);
+  };
+
+  const closeSideNavHandler = () => {
+    setSideNavIsOpen(false);
+  };
 
   const signOutHandler = () => {
     try {
@@ -20,72 +31,31 @@ const MainNav = () => {
     }
   };
   return (
-    <header className={classes.header}>
-      <NavLink to="/" className={classes.icon}>
-        <FaAirbnb className={classes.logo} />
-        <p className={classes.logoText}>BnB</p>
-      </NavLink>
-      <nav>
-        <ul className={classes.navList}>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? classes.active : "")}
-            >
-              Home
-            </NavLink>
-          </li>
-
-          {isAuth && (
-            <>
-              <li>
-                <NavLink
-                  to="/create"
-                  className={({ isActive }) => (isActive ? classes.active : "")}
-                >
-                  Create A Post
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/" onClick={signOutHandler}>
-                  Sign Out
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to={`/profile/${user?._id}`}
-                  className={({ isActive }) => (isActive ? classes.active : "")}
-                >
-                  {user?.username}
-                </NavLink>
-              </li>
-            </>
-          )}
-          {!isAuth && (
-            <>
-              <li>
-                <NavLink
-                  to="/signin"
-                  className={({ isActive }) => (isActive ? classes.active : "")}
-                >
-                  Sign In
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/signup"
-                  className={({ isActive }) => (isActive ? classes.active : "")}
-                >
-                  Sign Up
-                </NavLink>
-              </li>
-            </>
-          )}
-          <ThemeBtn />
-        </ul>
-      </nav>
-    </header>
+    <>
+      {sideNavIsOpen && <Backdrop onClick={closeSideNavHandler} />}
+      <SideNav show={sideNavIsOpen} onClick={closeSideNavHandler}>
+        <nav className={classes.sideNav}>
+          <RxCross2
+            onClick={closeSideNavHandler}
+            className={classes.crossBtn}
+          />
+          <NavLinks signOutHandler={signOutHandler} />
+        </nav>
+      </SideNav>
+      <header className={classes.header}>
+        <NavLink to="/" className={classes.icon}>
+          <FaAirbnb className={classes.logo} />
+          <p className={classes.logoText}>BnB</p>
+        </NavLink>
+        <nav className={classes.mainNav}>
+          <NavLinks signOutHandler={signOutHandler} />
+        </nav>
+        <RxHamburgerMenu
+          onClick={openSideNavHandler}
+          className={classes.menuBtn}
+        />
+      </header>
+    </>
   );
 };
 
