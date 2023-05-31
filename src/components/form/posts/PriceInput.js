@@ -15,7 +15,6 @@ const PriceInput = ({ changeHandler, price }) => {
         onBlur={priceBlurHandler}
         name="price"
         value={price}
-        placeholder="Price"
         required
       />
       {priceHasError && <p className="error-text">Price must not be empty!</p>}

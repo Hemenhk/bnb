@@ -17,7 +17,6 @@ const LocationInput = ({ changeHandler, location }) => {
         onBlur={locationBlurHandler}
         name="location"
         value={location}
-        placeholder="Location"
         required
       />
       {locationHasError && (

@@ -15,7 +15,6 @@ const DateInput = ({ changeHandler, createdAt }) => {
         onBlur={dateBlurHandler}
         name="createdAt"
         value={createdAt}
-        placeholder="Created Date"
         required
       />
       {dateHasError && <p className="error-text">Created Date must not be empty!</p>}

@@ -16,7 +16,6 @@ const ImageCoverInput = ({ changeHandler, imageCover }) => {
         onBlur={imageBlurHandler}
         name="imageCover"
         value={imageCover}
-        placeholder="Image Cover"
         required
       />
       {imageCoverHasError && (

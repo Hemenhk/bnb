@@ -10,13 +10,12 @@ const TitleInput = ({ changeHandler, title }) => {
   return (
     <div className={inputClasses}>
       <input
+        className="input"
         type="text"
         id="title"
         onChange={changeHandler}
         onBlur={titleBlurHandler}
         name="title"
-        value={title}
-        placeholder="Title"
         required
       />
       {titleHasError && <p className="error-text">Title must not be empty!</p>}

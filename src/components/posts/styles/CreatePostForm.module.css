@@ -1,34 +1,70 @@
 .container {
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  position: relative;
+  left: 120px;
+  top: 75px;
   width: 80%;
-  max-width: 600px;
-  padding: 2rem;
   background-color: var(--background-image);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
 }
 
 .heading {
+  margin-left: 120px;
+  padding-top: 50px;
+  margin-bottom: 30px;
   font-size: 1.5rem;
   font-family: "Roboto Condensed", sans-serif;
-  margin: 0;
-  margin-bottom: 1.5rem;
   color: #008489;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 0 auto;
+  gap: 27px;
+
+  font-family: "Inter", sans-serif !important;
+  font-size: 12px !important;
+  padding-bottom: 5px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  width: 100%;
+  height: 56%;
+}
+
+.leftside {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+}
+
+.rightside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 68px;
+  width: 100%;
+}
+
+.smInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10%;
+  width: 100%;
 }
 
 .desc {
   border: 0.5px solid #008489;
   border-radius: 5px;
   height: 200px;
-  width: 100%;
+  width: 103%;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -38,63 +74,146 @@ form {
   outline: none;
 }
 
-form > label {
-  margin-bottom: 0.5rem;
-  margin-right: 20px;
-  font-size: 1rem;
-  font-weight: 500;
+.label {
+  font-family: "Inter", sans-serif !important;
+  font-size: 12px !important;
 }
 
-.box > label {
-  font-weight: 500;
+.box {
+  width: 96%;
 }
 
 input {
-  width: 80%;
-  max-width: 300px;
+  width: 100%;
+  height: 20px;
   padding: 0.5rem;
   font-size: 1.2rem;
-  font-family: "Montserrat Alternatas", sans-serif;
-  border: none;
+  font-family: "Inter", sans-serif;
+  border: 1px solid #cbd2e0;
   border-bottom: 1px solid #e0e0e0;
+  border-radius: 4px;
   margin-bottom: 1.5rem;
 }
 
-input[type="date"],
+input[type="date"] {
+  width: 92%;
+}
+
 input[type="number"] {
-  width: 30%;
+  width: 90%;
 }
 
-button[type="submit"],
-button {
-  text-transform: uppercase;
-  margin-top: 2rem;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+.btnGroup {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 54px;
+  padding-top: 27px;
+  padding-bottom: 60px;
+}
+
+.mainBtn {
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
   border: none;
-  border-radius: 5px;
+
+  height: 44px;
+  width: 48%;
+
   cursor: pointer;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-out;
 }
 
-button[type="submit"] {
-  background-color: #ff7f50;
-  color: #ffffff;
+.mainBtn:hover {
+  background-color: #008489;
 }
 
-button[type="submit"]:hover {
-  background-color: #d26e49;
+.secondBtn {
+  width: 48%;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.8s ease-out;
 }
 
-button {
-  background-color: #ffffff;
-  color: #ff7f50;
-  border: 1px solid #ff7f50;
-  margin-right: 1rem;
+.secondBtn:hover {
+  border: none;
+  color: #fff;
+  background-color: #000;
 }
 
-button:hover {
-  background-color: #ff7f50;
-  color: #ffffff;
+@media screen and (max-width: 1024px) {
+  .container {
+    position: relative;
+    left: 60px;
+    top: 90px;
+    width: 88%;
+  }
+
+  .heading {
+    margin-left: 35px;
+  }
+
+  .form {
+    width: 91%;
+    margin-left: 35px;
+  }
+  .formContainer {
+    margin-right: 50px;
+  }
+
+  input {
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .container {
+    position: relative;
+    left: 30px;
+    top: 30px;
+    width: 84%;
+    height: 650px;
+  }
+
+  .form {
+    width: 80%;
+    margin-left: 35px;
+    gap: 1px;
+  }
+
+  .formContainer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .desc {
+    height: 50px;
+  }
+
+  .leftside {
+    gap: 10px;
+  }
+
+  .rightside {
+    gap: 10px;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mainBtn {
+    width: 100%;
+    height: 50px;
+  }
+
+  .secondBtn {
+    width: 100%;
+    height: 50px;
+  }
 }

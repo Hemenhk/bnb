@@ -16,7 +16,6 @@ const UsernameInput = ({ username, changeHandler }) => {
         value={username}
         onChange={changeHandler}
         onBlur={usernameBlurHandler}
-        placeholder="Username"
         required
       />
       {usernameHasError && (

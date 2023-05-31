@@ -65,31 +65,56 @@ const CreatePostForm = () => {
     <div className={classes.container}>
       {showAlert ? alert : null}
       <h2 className={classes.heading}>Add A New Listing</h2>
-      <form onSubmit={submitHandler}>
-        <div className={classes.box}>
-          <TitleInput changeHandler={changeHandler} value={title} />
-        </div>
-        <label htmlFor="description">Add Description:</label>
-        <div className={classes.box}>
-          <DescInput changeHandler={changeHandler} value={description} />
-        </div>
-        <div className={classes.box}>
-          <LocationInput changeHandler={changeHandler} value={location} />
-        </div>
-        <div className={classes.box}>
-          <PriceInput changeHandler={changeHandler} value={price} />
-        </div>
-        <div className={classes.box}>
-          <label htmlFor="description">Add Created Date:</label>
+      <form className={classes.form} onSubmit={submitHandler}>
+        <div className={classes.formContainer}>
+          <div className={classes.leftside}>
+            <div className={classes.box}>
+              <label className={classes.form}>Title</label>
+              <TitleInput changeHandler={changeHandler} value={title} />
+            </div>
+            {/* <label htmlFor="description">Add Description:</label> */}
+            <div className={classes.box}>
+              <label className={classes.form}>Location</label>
 
-          <DateInput changeHandler={changeHandler} value={createdAt} />
+              <LocationInput changeHandler={changeHandler} value={location} />
+            </div>
+
+            <div className={classes.box}>
+              <label className={classes.form}>Image Cover</label>
+
+              <ImageCoverInput
+                changeHandler={changeHandler}
+                value={imageCover}
+              />
+            </div>
+            <div className={classes.smInput}>
+              <div className={classes.box}>
+                <label className={classes.form}>Price</label>
+
+                <PriceInput changeHandler={changeHandler} value={price} />
+              </div>
+              <div className={classes.box}>
+                <label className={classes.form}>Date</label>
+
+                <DateInput changeHandler={changeHandler} value={createdAt} />
+              </div>
+            </div>
+          </div>
+          <div className={classes.rightside}>
+            <div className={classes.box}>
+              <label className={classes.form}>Description</label>
+
+              <DescInput changeHandler={changeHandler} value={description} />
+            </div>
+          </div>
         </div>
-        <div className={classes.box}>
-          <ImageCoverInput changeHandler={changeHandler} value={imageCover} />
-        </div>
-        <div>
-          <button type="submit">{isLoading ? "Creating..." : "Create"}</button>
-          <button onClick={cancelHandler}>Cancel</button>
+        <div className={classes.btnGroup}>
+          <button className={classes.mainBtn} type="submit">
+            {isLoading ? "Creating..." : "Create"}
+          </button>
+          <button className={classes.secondBtn} onClick={cancelHandler}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

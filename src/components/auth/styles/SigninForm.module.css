@@ -1,9 +1,10 @@
 .container {
+  display: flex;
   margin: 0 auto;
   margin-top: 100px;
+  margin-bottom: 100px;
   width: 70%;
-  max-width: 400px;
-  padding: 2rem;
+  max-width: 1200px;
   background-color: var(--background-image);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
@@ -11,12 +12,30 @@
 
 form {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 95%;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+.formContainer {
+  padding-right: 100px;
+  width: 80%;
+  padding-left: 70px;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 .header > h2 {
-  font-size: 2rem;
-  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2.5rem;
+  font-family: "Lobster two", sans-serif;
+  text-transform: none;
   letter-spacing: 0.5px;
   margin: 0;
   color: #008489;
@@ -29,58 +48,198 @@ form {
   color: grey;
 }
 
-label {
-  margin-bottom: 0.5rem;
-  margin-right: 20px;
-  font-size: 1rem;
-  font-weight: bold;
+.label {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
 }
 
-input {
-  width: 80%;
-  max-width: 300px;
-  padding: 0.5rem;
-  margin-top: 10px;
-  border: none;
-  border-radius: 2px;
-  border-bottom: 1px solid #e0e0e0;
-  font-family: "Montserrat Alternatas", sans-serif;
-  outline: 0;
-  transition: 0.2s;
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 97%;
 }
 
-input:focus {
-  border-color: #008489;
-}
-
-button {
-  font-family: "Roboto Condensed", sans-serif;
+.btnGroup button {
   font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #008489;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", sans-serif;
 }
 
-button:hover {
-  background-color: #006c70;
+.mainBtn {
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+  border: none;
+
+  height: 44px;
+  width: 108%;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.mainBtn:hover {
+  background-color: #008489;
+}
+
+.secondBtn {
+  height: 44px;
+  width: 108%;
+
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.8s ease-out;
+}
+
+.secondBtn:hover {
+  border: none;
+  color: #fff;
+  background-color: #000;
 }
 
 .redirect {
-  margin: 5px 0px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #343434;
+
+  text-align: center;
 }
 
 .click {
   color: #008489;
   font-weight: bold;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    position: relative;
+    right: 10px;
+    justify-content: center;
+    width: 88%;
+  }
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  img {
+    width: 350px;
+    height: 800px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header h2 {
+    font-size: 3rem;
+  }
+
+  .formContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 800px;
+  }
+
+  input {
+    height: 30px;
+    width: 100%;
+  }
+
+  .btnGroup {
+    padding-top: 20px;
+    width: 97%;
+  }
+
+  .mainBtn {
+    height: 44px;
+  }
+
+  .secondBtn {
+    height: 44px;
+  }
+
+  .redirect {
+    font-size: 1rem;
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .header h2 {
+    font-size: 2.5rem;
+  }
+
+  .formContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  input {
+    height: 25px;
+    width: 100%;
+  }
+
+  .btnGroup {
+    padding-top: 1px;
+    width: 100%;
+  }
+
+  .mainBtn {
+    height: 40px;
+  }
+
+  .secondBtn {
+    height: 40px;
+  }
+
+  .redirect {
+    font-size: 1rem;
+    padding-top: 5px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
 }

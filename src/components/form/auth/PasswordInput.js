@@ -15,7 +15,6 @@ const PasswordInput = ({ password, changeHandler }) => {
         value={password}
         onChange={changeHandler}
         onBlur={passwordBlurHandler}
-        placeholder="Password"
         required
       />
       {passwordHasError && (

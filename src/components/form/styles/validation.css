@@ -13,21 +13,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* .form-control input,
-.form-control select {
-  font: inherit;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 20rem;
-  max-width: 100%;
-}
-
-.form-control input:focus {
-  outline: none;
-  border-color: #240370;
-  background-color: #e0d4fd;
-} */
 
 button:disabled,
 button:disabled:hover,
@@ -55,4 +40,10 @@ button:disabled:active {
 
 .error-text {
   color: #b40e0e;
+}
+
+@media screen and (max-width: 390px) {
+  input {
+    height: 28px;
+  }
 }

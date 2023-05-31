@@ -14,7 +14,6 @@ const EmailInput = ({ email, changeHandler }) => {
         value={email}
         onChange={changeHandler}
         onBlur={emailBlurHandler}
-        placeholder="Email Address"
         required
       />
       {emailHasError && <p className="error-text">Must be a valid email!</p>}

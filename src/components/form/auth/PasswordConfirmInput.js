@@ -17,7 +17,6 @@ const PasswordConfirmInput = ({ passwordConfirm, changeHandler }) => {
         value={passwordConfirm}
         onChange={changeHandler}
         onBlur={passwordConfirmBlurHandler}
-        placeholder="Confirm Password"
         required
       />
       {passwordConfirmHasError && (
