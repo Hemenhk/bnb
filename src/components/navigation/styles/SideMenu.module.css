@@ -1,0 +1,54 @@
+.container {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+
+  padding-right: 50px;
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-align: center;
+
+  margin-top: 50px;
+  gap: 50px;
+  list-style: none;
+}
+
+li a {
+  color: rgb(143, 143, 143);
+  text-decoration: none;
+  transition: 0.3s ease-out;
+}
+
+li a:hover {
+  color: #000;
+}
+
+.link {
+  width: 40px;
+}
+
+.active {
+  color: #000;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    display: none;
+    width: 100%;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: none;
+    position: sticky;
+  bottom: 0;
+
+  }
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+  }
+}

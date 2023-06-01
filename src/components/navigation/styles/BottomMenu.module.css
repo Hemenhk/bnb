@@ -1,0 +1,18 @@
+.container {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid rgb(220, 220, 220);
+    margin-bottom: -30px;
+  }
+
+  li a svg {
+    position: relative;
+    bottom: 30px;
+  }
+
+}

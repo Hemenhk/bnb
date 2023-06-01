@@ -2,20 +2,24 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-import classes from "./styles/MainNav.module.css";
+import { BiHomeAlt, BiTab } from "react-icons/bi";
+import { BsPlusSquare } from "react-icons/bs";
+import { FiLogIn, FiLogOut, FiUserPlus } from "react-icons/fi";
+
+import classes from "./styles/SideMenu.module.css";
 import ThemeBtn from "../../ui/ThemeBtn";
 
 const NavLinks = ({ signOutHandler }) => {
   const { isAuth, user } = useSelector((state) => state.auth);
 
   return (
-    <ul className={classes.navList}>
+    <ul className={classes.navLinks}>
       <li>
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? classes.active : "")}
         >
-          Home
+          <BiHomeAlt size={36} />
         </NavLink>
       </li>
       {isAuth && (
@@ -25,12 +29,12 @@ const NavLinks = ({ signOutHandler }) => {
               to="/create"
               className={({ isActive }) => (isActive ? classes.active : "")}
             >
-              Create A Post
+              <BsPlusSquare size={30} />
             </NavLink>
           </li>
           <li>
             <NavLink to="/" onClick={signOutHandler}>
-              Sign Out
+              <FiLogOut size={36} />
             </NavLink>
           </li>
 
@@ -51,7 +55,7 @@ const NavLinks = ({ signOutHandler }) => {
               to="/signin"
               className={({ isActive }) => (isActive ? classes.active : "")}
             >
-              Sign In
+              <FiLogIn size={36} />
             </NavLink>
           </li>
           <li>
@@ -59,12 +63,12 @@ const NavLinks = ({ signOutHandler }) => {
               to="/signup"
               className={({ isActive }) => (isActive ? classes.active : "")}
             >
-              Sign Up
+              <FiUserPlus size={36} />
             </NavLink>
           </li>
         </>
       )}
-      <ThemeBtn/>
+      <ThemeBtn />
     </ul>
   );
 };

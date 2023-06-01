@@ -1,7 +1,7 @@
 .container {
   position: relative;
   left: 120px;
-  top: 75px;
+  top: -50px;
   width: 80%;
   background-color: var(--background-image);
   border-radius: 5px;
@@ -173,15 +173,15 @@ input[type="number"] {
 @media screen and (max-width: 390px) {
   .container {
     position: relative;
-    left: 30px;
-    top: 30px;
-    width: 84%;
-    height: 650px;
+    left: 5px;
+    top: -70px;
+    width: 120%;
+    height: 100%;
   }
 
   .form {
-    width: 80%;
-    margin-left: 35px;
+    width: 90%;
+    margin-left: 40px;
     gap: 1px;
   }
 
@@ -204,6 +204,7 @@ input[type="number"] {
 
   .btnGroup {
     flex-direction: column;
+    margin-right: 45px;
     gap: 10px;
   }
 

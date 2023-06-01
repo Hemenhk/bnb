@@ -25,3 +25,10 @@
 .moon:hover {
   color: coral;
 }
+
+@media screen and (max-width: 414px) {
+  svg {
+    position: relative;
+    bottom: 25px;
+  }
+}

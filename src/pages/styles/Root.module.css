@@ -1,0 +1,22 @@
+.content {
+  margin: auto;
+  margin-top: 100px;
+  width: 70%;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .content {
+    margin-right: 90px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .bottomMenu {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+  }
+}
