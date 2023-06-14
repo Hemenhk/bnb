@@ -1,5 +1,7 @@
 import React from "react";
 import { useAuthInput } from "../../../store/validation/actions/authValidationActions";
+import classes from "../../auth/styles/SigninForm.module.css"
+
 const PasswordInput = ({ password, changeHandler }) => {
   const { passwordHasError, passwordBlurHandler } = useAuthInput();
   const inputClasses = passwordHasError
@@ -15,6 +17,8 @@ const PasswordInput = ({ password, changeHandler }) => {
         value={password}
         onChange={changeHandler}
         onBlur={passwordBlurHandler}
+        className={classes.input}
+
         required
       />
       {passwordHasError && (

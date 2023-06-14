@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signupAction } from "../../store/auth/actions/signUpActions";
 import { setAuthInputValues } from "../../store/auth/reducers/authSlice";
-import classes from "./styles/SigninForm.module.css";
+import classes from "./styles/SignupForm.module.css";
 import Alert from "../../ui/Alert";
 import { useState } from "react";
 import EmailInput from "../form/auth/EmailInput";
@@ -66,55 +66,57 @@ const SignupForm = () => {
     <>
       {showAlert ? alert : null}
       <div className={classes.container}>
-        <form onSubmit={submitHandler}>
-          <div className={classes.image}>
-            <img src={image} alt="register img" />
+        <form className={classes.formContainer} onSubmit={submitHandler}>
+          <div className={classes.headingContainer}>
+            <h1 className={classes.h1}>Register Account</h1>
+            <p className={classes.p}>Sign up to post a listing</p>
           </div>
-          <div className={classes.formContainer}>
-            <div className={classes.header}>
-              <h2>Sign Up</h2>
-              <h4>Create an account to post your listing</h4>
-            </div>
-            <div className={classes.formGroup}>
+          <div className={classes.inputContainer}>
+            <div>
               <label className={classes.label}>Username</label>
               <UsernameInput changeHandler={changeHandler} value={username} />
             </div>
-            <div className={classes.formGroup}>
+            <div>
               <label className={classes.label}>Email</label>
               <EmailInput changeHandler={changeHandler} value={email} />
             </div>
-            <div className={classes.formGroup}>
+            <div>
               <label className={classes.label}>Password</label>
               <PasswordInput changeHandler={changeHandler} value={password} />
             </div>
-            <div className={classes.formGroup}>
-              <label className={classes.label}>Password Confirm</label>
+            <div>
+              <label className={classes.label}>Confirm password</label>
               <PasswordConfirmInput
                 changeHandler={changeHandler}
                 value={passwordConfirm}
               />
             </div>
-
-            <div className={classes.btnGroup}>
-              <button className={classes.mainBtn} type="submit">
-                {isLoading ? "Creating User" : "Create"}
-              </button>
-              <button className={classes.secondBtn} onClick={cancelHandler}>
-                Cancel
-              </button>
-            </div>
-            <div className={classes.redirect}>
+          </div>
+          <div className={classes.btnContainer}>
+            <button
+              className={`${classes.button} ${classes.btn1}`}
+              type="submit"
+            >
+              {isLoading ? "Creating User" : "Sign up"}
+            </button>
+            <button
+              className={`${classes.button} ${classes.btn2}`}
+              onClick={cancelHandler}
+            >
+              Cancel
+            </button>
+            <p className={classes.redirect}>
               Already have an account?{" "}
               <span>
-                <NavLink className={classes.click} to="/signin">
+                <NavLink className={classes.click} to="/signup">
                   Click here
                 </NavLink>
               </span>{" "}
-              to login
-            </div>
+              to sign in
+            </p>
           </div>
         </form>
-      </div>{" "}
+      </div>
     </>
   );
 };

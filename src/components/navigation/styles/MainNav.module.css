@@ -135,7 +135,8 @@
 }
 
 .btnLink1:hover {
-  background-color: #bf5e21;
+  background-color: #42876e;
+  color: #fff;
 }
 
 
@@ -188,7 +189,7 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 414px) {
   .header {
     justify-content: center;
     height: 50px;

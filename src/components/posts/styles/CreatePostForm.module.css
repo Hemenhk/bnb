@@ -170,7 +170,7 @@ input[type="number"] {
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 414px) {
   .container {
     position: relative;
     left: 5px;

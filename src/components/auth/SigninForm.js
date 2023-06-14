@@ -61,44 +61,48 @@ const SigninForm = () => {
   return (
     <>
       {showAlert ? alert : null}
-      <div className={classes.container}>
-        <form className={classes.form} onSubmit={submitHandler}>
-          <div className={classes.image}>
-            <img src={image} alt="login img" />
-          </div>
-          <div className={classes.formContainer}>
-            <div className={classes.header}>
-              <h2>Welcome</h2>
-              <h4>Log in to your account</h4>
+      <div className={classes.cardContainer}>
+          <form className={classes.formContainer} onSubmit={submitHandler}>
+            <div className={classes.headingContainer}>
+              <h1 className={classes.h1}>Welcome</h1>
+              <p className={classes.p}>Sign in using your credentials</p>
             </div>
-            <div className={classes.formGroup}>
-              <label className={classes.label}>Email</label>
-              <EmailInput changeHandler={changeHandler} value={email} />
+            <div className={classes.inputContainer}>
+              <div>
+                <label className={classes.label}>Email</label>
+                <EmailInput changeHandler={changeHandler} value={email} />
+              </div>
+              <div>
+                <label className={classes.label}>Password</label>
+
+                <PasswordInput changeHandler={changeHandler} value={password} />
+              </div>
             </div>
-            <div className={classes.formGroup}>
-              <label className={classes.label}>Password</label>
-              <PasswordInput changeHandler={changeHandler} value={password} />
-            </div>
-            <div className={classes.btnGroup}>
-              <button className={classes.mainBtn} type="submit">
-                {isLoading ? "Logging In" : "Login"}
+            <div className={classes.btnContainer}>
+              <button
+                type="submit"
+                className={`${classes.button} ${classes.btn1}`}
+              >
+                {isLoading ? "Signing In" : "Sign in"}
               </button>
-              <button className={classes.secondBtn} onClick={cancelHandler}>
+              <button
+                className={`${classes.button} ${classes.btn2}`}
+                onClick={cancelHandler}
+              >
                 Cancel
               </button>
+              <p className={classes.redirect}>
+                Don't have an account?{" "}
+                <span>
+                  <NavLink className={classes.click} to="/signup">
+                    Click here
+                  </NavLink>
+                </span>{" "}
+                to sign up
+              </p>
             </div>
-            <div className={classes.redirect}>
-              Don't have an account?{" "}
-              <span>
-                <NavLink className={classes.click} to="/signup">
-                  Click here
-                </NavLink>
-              </span>{" "}
-              to sign up
-            </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
     </>
   );
 };
